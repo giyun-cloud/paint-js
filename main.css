@@ -11,15 +11,79 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 20px 0;
 }
 
 .canvas {
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   background-color: #fff;
   border-radius: 15px;
   -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
           box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.controls {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controls-range {
+  margin-bottom: 15px;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.controls-range:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.controls-range:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.controls-btns {
+  margin-bottom: 15px;
+}
+
+.controls-btns button {
+  all: unset;
+  width: 80px;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 12px;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.controls-btns button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.controls-btns button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .controls-colors {
@@ -34,8 +98,19 @@ body {
   border-radius: 50%;
   -webkit-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08);
           box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08);
-  margin-top: 50px;
   cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.controls-colors .color:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.controls-colors .color:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .controls-colors .color:nth-child(1) {
