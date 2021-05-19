@@ -2,6 +2,7 @@ const canvas = document.getElementById('jsCanvas')
 const colorBtns = document.querySelectorAll('li.color')
 const range = document.getElementById('jsRange')
 const modeBtn = document.getElementById('jsMode')
+const saveBtn = document.getElementById('jsSave')
 
 //COMMON
 const canvasSize = 600
@@ -44,6 +45,10 @@ function onMouseUp() {
   stopPainting()
 }
 
+function onContextMenu(event) {
+  event.preventDefault()
+}
+
 function changeColor(e) {
   ctx.strokeStyle = getComputedStyle(e.target).backgroundColor
 }
@@ -63,12 +68,24 @@ function changeModeFunc() {
   }
 }
 
+function onSaveBtn() {
+  const link = document.createElement('a')
+  link.href = canvas.toDataURL()
+  link.download = 'paintJs'
+  link.click()
+}
+
 function init() {
+  //canvas 초기 배경색 설정  안하면 투명색으로됨
+  ctx.fillStyle = '#fff'
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
+
   canvas.addEventListener('mousemove', onMouseMove)
   canvas.addEventListener('mousedown', onMouseDown)
   canvas.addEventListener('mouseup', onMouseUp)
   canvas.addEventListener('mouseleave', stopPainting)
   // 위4개는 모두 canvas에서 첫번째 인자의 상태일때만 호출된다. 고로 canvas안에서만 일어남.
+  canvas.addEventListener('contextmenu', onContextMenu)
 
   colorBtns.forEach((colorBtn, index) => {
     colorBtn.addEventListener('click', changeColor)
@@ -77,5 +94,7 @@ function init() {
   range.addEventListener('input', changeLineWidth)
 
   modeBtn.addEventListener('click', changeModeFunc)
+
+  saveBtn.addEventListener('click', onSaveBtn)
 }
 init()
